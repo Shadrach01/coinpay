@@ -1,5 +1,6 @@
 import 'package:coin_pay/core/common/general_button.dart';
 import 'package:coin_pay/core/utils/color_res.dart';
+import 'package:coin_pay/features/onboarding/provider/onboarding_notifier.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -77,29 +78,28 @@ Widget onboardingButton(
   WidgetRef ref,
 ) {
   return generalButton(
-    child: const Row(),
+    index: index,
+    onTap: () {
+      // If the index is less than 2, which mean it's not in the
+      // last page yet, update the index in the INDEXDOTPROVIDER to +1
+      if (index < 2) {
+        controller.animateToPage(
+          index + 1,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.linear,
+        );
+      }
+      ref.read(indexDotProvider.notifier).changeIndex(index + 1);
+    },
+    height: 56,
+    child: const Center(
+      child: Text(
+        "Next",
+        style: TextStyle(
+          color: ColorRes.bgLightColor,
+          fontSize: 15,
+        ),
+      ),
+    ),
   );
 }
-
-
-// Widget onboardingButton(
-//   int index,
-//   PageController controller,
-//   WidgetRef ref,
-// ) {
-//   return Container(
-//     height: 56,
-//     decoration: BoxDecoration(  
-//       color: ColorRes.primaryColor,
-//       borderRadius: BorderRadius.circular(40),
-//     ),
-//     child: const Center(
-//         child: Text(
-//       "Next",
-//       style: TextStyle(
-//         color: ColorRes.bgLightColor,
-//         fontSize: 15,
-//       ),
-//     )),
-//   );
-// }
