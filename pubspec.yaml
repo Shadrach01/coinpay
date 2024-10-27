@@ -19,6 +19,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   build_runner: ^2.4.13
   riverpod_generator: ^2.6.1
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

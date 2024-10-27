@@ -3,6 +3,7 @@ import 'package:coin_pay/core/utils/color_res.dart';
 import 'package:coin_pay/features/onboarding/provider/onboarding_notifier.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OnboardingPages extends StatelessWidget {
@@ -88,8 +89,12 @@ Widget onboardingButton(
           duration: const Duration(milliseconds: 300),
           curve: Curves.linear,
         );
-      }
+        // Update the page index
       ref.read(indexDotProvider.notifier).changeIndex(index + 1);
+      } else {
+        Get.offAllNamed('/auth_page');
+      }
+
     },
     height: 56,
     child: const Center(
