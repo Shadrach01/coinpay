@@ -1,4 +1,5 @@
 import 'package:coin_pay/core/common/general_button.dart';
+import 'package:coin_pay/core/common/widgets/text_widgets.dart';
 import 'package:coin_pay/core/utils/color_res.dart';
 import 'package:coin_pay/features/onboarding/provider/onboarding_notifier.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -58,15 +59,14 @@ class OnboardingPages extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: 45,
           ),
-          child: Text(
-            text,
-            style: const TextStyle(
-              fontSize: 34,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
+          child: AppText(
+            text: text,
+            weight: FontWeight.w600,
+            size: 32,
+            color: ColorRes.contentPrimary,
           ),
-        )
+          
+        ),
       ],
     );
   }

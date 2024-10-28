@@ -8,6 +8,8 @@ Widget generalButton({
   void Function()? onTap,
   double? height,
   required Widget child,
+  Border? borderSettings,
+  Color color = ColorRes.primaryColor,
 }) {
   return GestureDetector(
     onTap: onTap,
@@ -15,7 +17,8 @@ Widget generalButton({
       width: double.infinity,
       height: height,
       decoration: BoxDecoration(
-        color: ColorRes.primaryColor,
+        color: color,
+        border: borderSettings,
         borderRadius: BorderRadius.circular(100),
       ),
       child: child,

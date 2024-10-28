@@ -7,4 +7,5 @@ class ImageRes {
   static const String onboarding_1 = '$_imageBase/onboarding_1.png';
   static const String onboarding_2 = '$_imageBase/onboarding_2.png';
   static const String onboarding_3 = '$_imageBase/onboarding_3.png';
+  static const String auth_page = '$_imageBase/auth_page.jpg';
 }
