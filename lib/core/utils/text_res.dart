@@ -13,5 +13,11 @@ class TextRes {
   static const String acceptOffer = "By continuing you accept our";
   static const String terms = "Terms of Service";
   static const String privacy = "Privacy Policy";
+  static const String createAccount = "Create an Account";
+  static const String enterNumber =
+      "Enter your mobile number to verify your account";
+  static const String verifyNumber =
+      "Verify your phone number before we send code";
+  static const String verifyNumber2 = "Is this correct?";
     
 }
