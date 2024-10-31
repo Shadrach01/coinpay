@@ -1,0 +1,38 @@
+import 'package:coin_pay/core/utils/image_res.dart';
+
+class Constants {
+   final List<Map<String, String>> countryDialCodes = [
+     {"code": "US", "dial_code": "+1", "flag": ImageRes.US},
+     {"code": "CA", "dial_code": "+1", "flag": ImageRes.CA},
+     {"code": "GB", "dial_code": "+44", "flag": ImageRes.GB},
+     {"code": "AU", "dial_code": "+61", "flag": ImageRes.AU},
+     {"code": "IN", "dial_code": "+91", "flag": ImageRes.IN},
+     {"code": "NG", "dial_code": "+234", "flag": ImageRes.NG},
+     {"code": "ZA", "dial_code": "+27", "flag": ImageRes.ZA},
+     {"code": "KE", "dial_code": "+254", "flag": ImageRes.KE},
+     {"code": "GH", "dial_code": "+233", "flag": ImageRes.GH},
+     {"code": "FR", "dial_code": "+33", "flag": ImageRes.FR},
+     {"code": "DE", "dial_code": "+49", "flag": ImageRes.DE},
+     {"code": "IT", "dial_code": "+39", "flag": ImageRes.IT},
+     {"code": "ES", "dial_code": "+34", "flag": ImageRes.ES},
+     {"code": "AR", "dial_code": "+54", "flag": ImageRes.AR},
+     {"code": "JP", "dial_code": "+81", "flag": ImageRes.JP},
+     {"code": "CN", "dial_code": "+86", "flag": ImageRes.CN},
+     {"code": "RU", "dial_code": "+7", "flag": ImageRes.RU},
+     {"code": "MX", "dial_code": "+52", "flag": ImageRes.MX},
+     {"code": "ID", "dial_code": "+62", "flag": ImageRes.ID},
+     {"code": "TR", "dial_code": "+90", "flag": ImageRes.TR},
+     {"code": "SA", "dial_code": "+966", "flag": ImageRes.SA},
+     {"code": "AE", "dial_code": "+971", "flag": ImageRes.AE},
+     {"code": "EG", "dial_code": "+20", "flag": ImageRes.EG},
+     {"code": "PH", "dial_code": "+63", "flag": ImageRes.PH},
+     {"code": "PK", "dial_code": "+92", "flag": ImageRes.PK},
+     {"code": "BD", "dial_code": "+880", "flag": ImageRes.BD},
+     {"code": "MY", "dial_code": "+60", "flag": ImageRes.MY},
+     {"code": "SG", "dial_code": "+65", "flag": ImageRes.SG},
+     {"code": "NZ", "dial_code": "+64", "flag": ImageRes.NZ},
+     {"code": "TZ", "dial_code": "+255", "flag": ImageRes.TZ},
+     {"code": "UG", "dial_code": "+256", "flag": ImageRes.UG},
+     {"code": "ZM", "dial_code": "+260", "flag": ImageRes.ZM},
+   ];
+}
