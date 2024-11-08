@@ -1,38 +1,31 @@
 import 'package:coin_pay/core/utils/color_res.dart';
-import 'package:coin_pay/features/auth/registration/add_email/widgets/add_email_widgets.dart';
+import 'package:coin_pay/features/auth/registration/country_of_residence/widget/country_of_residents_widgets.dart';
 import 'package:coin_pay/features/auth/registration/general_registration_widgets.dart';
 import 'package:coin_pay/features/auth/registration/provider/registration_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
-class AddEmail extends ConsumerStatefulWidget {
+class CountryOfResidence extends ConsumerStatefulWidget {
   final PageController pageController;
-  const AddEmail({
+  const CountryOfResidence({
     super.key,
     required this.pageController,
   });
 
   @override
-  ConsumerState<AddEmail> createState() => _ConsumerAddEmailState();
+  ConsumerState<CountryOfResidence> createState() => _CountryOfResidenceState();
 }
 
-class _ConsumerAddEmailState extends ConsumerState<AddEmail> {
-  final emailController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.dispose();
-    super.dispose();
-  }
-
+class _CountryOfResidenceState extends ConsumerState<CountryOfResidence> {
   @override
   Widget build(BuildContext context) {
     // Watch the registration state
-    final registrationStateValue = ref.watch(registrationState);
+    final selectedCountry = ref.watch(
+      registrationState.select((state) => state.countryOfResidence),
+    );
+    final bool isCountrySelected = selectedCountry != null;
 
-    // is email text filled
-    final isEmailFilled = registrationStateValue.email.isNotEmpty;
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.only(
@@ -43,13 +36,12 @@ class _ConsumerAddEmailState extends ConsumerState<AddEmail> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AddEmailWidgets(
-              emailController: emailController,
-            ),
+            const CountryOfResidenceWidgets(),
             registrationButton(
               onTap: () {
                 FocusScope.of(context).unfocus();
-                isEmailFilled
+
+                isCountrySelected
                     ? widget.pageController.nextPage(
                         duration: const Duration(milliseconds: 200),
                         curve: Curves.ease)
@@ -62,8 +54,8 @@ class _ConsumerAddEmailState extends ConsumerState<AddEmail> {
                         leftBarIndicatorColor: Colors.red,
                       );
               },
-              text: " Sign up",
-              isActive: isEmailFilled,
+              text: "Continue",
+              isActive: isCountrySelected,
             )
           ],
         ),

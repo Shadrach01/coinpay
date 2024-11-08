@@ -4,13 +4,13 @@ class ImageRes {
 
   ImageRes._();
 
-  static const String _iconsBase = "assets/icons";
+  static const String _iconsBase = "assets/icons/flags";
 
   static const String US = '$_iconsBase/US.png';
   static const String CA = '$_iconsBase/CA.png';
   static const String GB = '$_iconsBase/GB.png';
   static const String AU = '$_iconsBase/AU.png';
-  static const String IN = '$_iconsBase/in.png';
+  static const String IN = '$_iconsBase/IN.png';
   static const String NG = '$_iconsBase/NG.png';
   static const String ZA = '$_iconsBase/ZA.png';
   static const String KE = '$_iconsBase/KE.png';
@@ -51,4 +51,7 @@ class ImageRes {
   static const String auth_page = '$_imageBase/auth_page.jpg';
   
   static const String verify_dialog_image = '$_imageBase/verify_envelope.jpg';
+
+  // welcome page image
+  static const String welcome_image = '$_imageBase/welcome.jpg';
 }

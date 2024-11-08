@@ -1,40 +1,52 @@
 import 'package:coin_pay/core/utils/color_res.dart';
-import 'package:coin_pay/features/auth/registration/add_email/widgets/add_email_widgets.dart';
 import 'package:coin_pay/features/auth/registration/general_registration_widgets.dart';
+import 'package:coin_pay/features/auth/registration/personal_info/widget/personal_info_widgets.dart';
 import 'package:coin_pay/features/auth/registration/provider/registration_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
-class AddEmail extends ConsumerStatefulWidget {
+class PersonalInfo extends ConsumerStatefulWidget {
   final PageController pageController;
-  const AddEmail({
+  const PersonalInfo({
     super.key,
     required this.pageController,
   });
 
   @override
-  ConsumerState<AddEmail> createState() => _ConsumerAddEmailState();
+  ConsumerState<PersonalInfo> createState() => _PersonalInfoState();
 }
 
-class _ConsumerAddEmailState extends ConsumerState<AddEmail> {
-  final emailController = TextEditingController();
+class _PersonalInfoState extends ConsumerState<PersonalInfo> {
+  final fulNameController = TextEditingController();
+
+  final userNameController = TextEditingController();
+
+  final dobController = TextEditingController();
 
   @override
   void dispose() {
-    emailController.dispose();
+    fulNameController.dispose();
+    userNameController.dispose();
+    dobController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // Watch the registration state
-    final registrationStateValue = ref.watch(registrationState);
+    final stateObserver = ref.watch(registrationState);
 
-    // is email text filled
-    final isEmailFilled = registrationStateValue.email.isNotEmpty;
+    // watch the home address state
+    final personalInfoState = stateObserver.personalInfo;
+
+    // check if the home address is not empty
+    final bool stateNotEmpty = personalInfoState.fullName.isNotEmpty &&
+        personalInfoState.userName.isNotEmpty &&
+        personalInfoState.dob.isNotEmpty;
+
+    // Build UI
     return Scaffold(
-      body: Container(
+      body: Padding(
         padding: const EdgeInsets.only(
           left: 15,
           right: 15,
@@ -43,28 +55,36 @@ class _ConsumerAddEmailState extends ConsumerState<AddEmail> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AddEmailWidgets(
-              emailController: emailController,
+            Expanded(
+              child: SingleChildScrollView(
+                child: PersonalInfoWidgets(
+                  fulNameController: fulNameController,
+                  userNameController: userNameController,
+                  dobController: dobController,
+                ),
+              ),
             ),
+            const SizedBox(height: 20),
             registrationButton(
+              text: "Continue",
               onTap: () {
                 FocusScope.of(context).unfocus();
-                isEmailFilled
+
+                stateNotEmpty
                     ? widget.pageController.nextPage(
                         duration: const Duration(milliseconds: 200),
                         curve: Curves.ease)
                     : Get.snackbar(
                         backgroundColor: ColorRes.primaryColor,
                         "Error",
-                        "Please enter your email",
+                        "Please enter your full address",
                         colorText: ColorRes.bgLightColor,
                         duration: const Duration(milliseconds: 700),
                         leftBarIndicatorColor: Colors.red,
                       );
               },
-              text: " Sign up",
-              isActive: isEmailFilled,
-            )
+              isActive: stateNotEmpty,
+            ),
           ],
         ),
       ),

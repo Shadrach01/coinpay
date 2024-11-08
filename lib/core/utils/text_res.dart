@@ -19,5 +19,17 @@ class TextRes {
   static const String verifyNumber =
       "Verify your phone number before we send code";
   static const String verifyNumber2 = "Is this correct?";
+  static const String addEmail = "Add your email";
+  static const String accurateInfo =
+      "This info needs to be accurate with your ID document";
+  static const String homeAddress = "Home address";
+  static const String personalInfo = "Add your personal info";
+  static const String countryOfResidence = "Country of residence";
+  static const String createPasscode = "Create passcode";
+  static const String congratulations = "Congratulations!";
+  static const String welcomeToCoinpay = "Welcome to Coinpay";
+  static const String welcomeToCoinpay2 =
+      "We are happy to have you. It's time to send, receive, and track your expenses";
+
     
 }

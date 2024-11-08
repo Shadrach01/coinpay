@@ -6,14 +6,24 @@ import 'package:coin_pay/features/onboarding/widgets/onboarding_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingScreens extends ConsumerWidget {
-  OnboardingScreens({super.key});
+class OnboardingScreens extends ConsumerStatefulWidget {
+  const OnboardingScreens({super.key});
 
+  @override
+  ConsumerState<OnboardingScreens> createState() => _OnboardingScreensState();
+}
+
+class _OnboardingScreensState extends ConsumerState<OnboardingScreens> {
   final PageController _controller = PageController();
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  void dispose() {
+    _controller.dispose;
+    super.dispose();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     final index = ref.watch(indexDotProvider);
     return Scaffold(
       body: Container(
@@ -27,19 +37,19 @@ class OnboardingScreens extends ConsumerWidget {
                 ref.read(indexDotProvider.notifier).changeIndex(value);
               },
               children: [
-                OnboardingPages(
+                OnboardingPagesWidgets(
                   controller: _controller,
                   imagePath: ImageRes.onboarding_1,
                   index: index,
                   text: TextRes.onboadringTextOne,
                 ),
-                OnboardingPages(
+                OnboardingPagesWidgets(
                   controller: _controller,
                   imagePath: ImageRes.onboarding_2,
                   index: index,
                   text: TextRes.onboadringTextTwo,
                 ),
-                OnboardingPages(
+                OnboardingPagesWidgets(
                   controller: _controller,
                   imagePath: ImageRes.onboarding_3,
                   index: index,

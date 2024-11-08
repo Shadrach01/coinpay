@@ -12,6 +12,10 @@ Widget appTextField({
   IconData? prefixIcon,
   TextInputType? keyboardType,
   List<TextInputFormatter>? inputFormatters,
+  void Function()? onTap,
+  bool readonly = false,
+  void Function(String)? onChanged,
+  String? Function(String?)? validator,
 }) {
   return AppContainer(
     width: width,
@@ -29,6 +33,7 @@ Widget appTextField({
           hintText: hintText,
           hintStyle: const TextStyle(
             color: ColorRes.lightGrey,
+            fontSize: 15
           ),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 10,
@@ -38,6 +43,10 @@ Widget appTextField({
           prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
           suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
         ),
+        readOnly: readonly,
+        onTap: onTap,
+        onChanged: onChanged,
+        validator: validator,
       ),
     ),
   );

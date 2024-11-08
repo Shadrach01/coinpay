@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OnboardingPages extends StatelessWidget {
+class OnboardingPagesWidgets extends StatelessWidget {
   final PageController controller;
   final String imagePath;
   final int index;
   final String text;
 
-  const OnboardingPages({
+  const OnboardingPagesWidgets({
     super.key,
     required this.controller,
     required this.imagePath,
@@ -92,7 +92,7 @@ Widget onboardingButton(
         // Update the page index
       ref.read(indexDotProvider.notifier).changeIndex(index + 1);
       } else {
-        Get.offAllNamed('/auth_page');
+        Get.toNamed('/registration_page');
       }
 
     },
