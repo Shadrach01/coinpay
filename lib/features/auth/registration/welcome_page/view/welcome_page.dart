@@ -1,5 +1,5 @@
 import 'package:coin_pay/core/utils/color_res.dart';
-import 'package:coin_pay/features/auth/registration/general_registration_widgets.dart';
+import 'package:coin_pay/features/auth/general_registration_widgets.dart';
 import 'package:coin_pay/features/auth/registration/welcome_page/widget/welcome_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

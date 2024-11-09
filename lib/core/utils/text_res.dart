@@ -30,6 +30,8 @@ class TextRes {
   static const String welcomeToCoinpay = "Welcome to Coinpay";
   static const String welcomeToCoinpay2 =
       "We are happy to have you. It's time to send, receive, and track your expenses";
+  static const String login = "Log in to CoinPay";
 
-    
+  static const String enterNumberToLogin =
+      "Enter your registered mobile number to login";
 }

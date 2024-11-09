@@ -1,6 +1,6 @@
 import 'package:coin_pay/core/common/widgets/text_widgets.dart';
 import 'package:coin_pay/core/utils/text_res.dart';
-import 'package:coin_pay/features/auth/registration/general_registration_widgets.dart';
+import 'package:coin_pay/features/auth/general_registration_widgets.dart';
 import 'package:coin_pay/features/auth/registration/provider/registration_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
