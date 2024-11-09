@@ -1,4 +1,5 @@
 import 'package:coin_pay/core/routes/route_names.dart';
+import 'package:coin_pay/features/home_page/view/home_page.dart';
 import 'package:coin_pay/features/onboarding/views/onboarding_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: OnboardingScreens(),
+      home: const HomePage(),
     );
   }
 }

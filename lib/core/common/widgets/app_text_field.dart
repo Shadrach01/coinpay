@@ -10,38 +10,44 @@ Widget appTextField({
   double width = 200,
   IconData? suffixIcon,
   IconData? prefixIcon,
+  Color prefixIconColor = ColorRes.lightGrey,
+  Color textColor = ColorRes.lightGrey,
   TextInputType? keyboardType,
   List<TextInputFormatter>? inputFormatters,
   void Function()? onTap,
   bool readonly = false,
+  Color borderColor = ColorRes.lightGrey,
   void Function(String)? onChanged,
   String? Function(String?)? validator,
+  double horizontalPadding = 10,
+  double verticalPadding = 12,
 }) {
   return AppContainer(
     width: width,
+    borderColor: borderColor,
     child: Center(
       child: TextFormField(
         controller: controller,
         obscureText: obscureText,
-        style: const TextStyle(
-          color: ColorRes.lightGrey,
+        style: TextStyle(
+          color: textColor,
           fontSize: 20,
         ),
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: const TextStyle(
-            color: ColorRes.lightGrey,
+          hintStyle: TextStyle(color: textColor,
             fontSize: 15
           ),
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 12,
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: horizontalPadding,
+            vertical: verticalPadding,
           ),
           border: InputBorder.none,
           prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
           suffixIcon: suffixIcon != null ? Icon(suffixIcon) : null,
+          prefixIconColor: prefixIconColor,
         ),
         readOnly: readonly,
         onTap: onTap,
